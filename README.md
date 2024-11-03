@@ -35,10 +35,9 @@ A library for obtaining Hitokoto data, suitable for developing ESP32 \ ESP8266 o
 #include <Arduino.h>
 #include "hitokoto.h"
 
-const char* ssid = "BDAI"; // WiFi SSID
-const char* password = "bdai@666"; // WiFi 密码
-
-Hitokoto hitokoto; // 创建 Hitokoto 对象
+const char* ssid = "Your_SSID"; // WiFi SSID
+const char* password = "Your_Password"; // WiFi password
+Hitokoto hitokoto;
 
 void setup() 
 {
@@ -47,9 +46,9 @@ void setup()
     while (WiFi.status() != WL_CONNECTED) 
     {
         delay(1000);
-        Serial.println("连接中...");
+        Serial.println("Connecting...");
     }
-    Serial.println("WiFi已连接");
+    Serial.println("WiFi connected!");
 
     HitokotoResult res = hitokoto.getDetailHitokoto("https://v1.hitokoto.cn/?c=a&c=b&encode=json", 1, 2000);
     Serial.println(res.content);
@@ -59,7 +58,7 @@ void setup()
 
 void loop() 
 {
-    // 主循环
+
 }
 
 ```
